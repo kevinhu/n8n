@@ -2116,10 +2116,10 @@ export class Github implements INodeType {
 						body,
 						qs,
 					);
-					responseData = this.helpers.preparePairedData(allItems, i);
+					responseData = this.helpers.preparePairedOutputData(allItems, i);
 				} else {
 					const data = await githubApiRequest.call(this, requestMethod, endpoint, body, qs);
-					responseData = this.helpers.preparePairedData(data, i);
+					responseData = this.helpers.preparePairedOutputData(data, i);
 				}
 
 				if (fullOperation === 'file:get') {
@@ -2151,12 +2151,12 @@ export class Github implements INodeType {
 
 						items[i] = newItem;
 
-						return items.map((item, i) => this.helpers.preparePairedData(item, i, 0, asBinaryProperty));
+						return items.map((item, i) => this.helpers.preparePairedOutputData(item, i, 0, asBinaryProperty));
 					}
 				}
 
 				if (fullOperation === 'release:delete') {
-					responseData = this.helpers.preparePairedData({ success: true }, i);
+					responseData = this.helpers.preparePairedOutputData({ success: true }, i);
 				}
 
 				if (overwriteDataOperations.includes(fullOperation) || overwriteDataOperationsArray.includes(fullOperation)) {
@@ -2186,7 +2186,7 @@ export class Github implements INodeType {
 			return [returnData];
 		} else {
 			// For all other ones simply return the unchanged items
-			return items.map((item, i) => this.helpers.preparePairedData(item, i));
+			return items.map((item, i) => this.helpers.preparePairedOutputData(item, i));
 		}
 	}
 }
