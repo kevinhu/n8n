@@ -48,7 +48,7 @@ import {
 	N8nActionBox,
 	N8nAvatar,
 	N8nActionToggle,
-	N8nButton,
+	// N8nButton,
 	N8nElButton,
 	N8nCallout,
 	N8nPanelCallout,
@@ -80,17 +80,19 @@ import {
 	N8nTag,
 	N8nText,
 	N8nTooltip,
+	designSystemComponents,
 } from 'n8n-design-system';
 import { ElMessageBoxOptions } from "element-ui/types/message-box";
 
 Vue.use(Fragment.Plugin);
+Vue.use(designSystemComponents);
 
 // n8n design system
 Vue.use(N8nInfoAccordion);
 Vue.use(N8nActionBox);
 Vue.use(N8nActionToggle);
 Vue.use(N8nAvatar);
-Vue.component('n8n-button', N8nButton);
+// Vue.component('n8n-button', N8nButton);
 Vue.component('el-button', N8nElButton);
 Vue.component('n8n-callout', N8nCallout);
 Vue.component('n8n-panel-callout', N8nPanelCallout);

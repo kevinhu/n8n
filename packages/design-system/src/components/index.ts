@@ -75,14 +75,22 @@ import N8nUsersList from './N8nUsersList';
 import N8nUserSelect from './N8nUserSelect';
 
 import locale from '../locale';
+import Vue from 'vue';
+
+const plugin = {
+	install: (app: typeof Vue, options?: any) => {
+		app.component('n8n-button', N8nButton);
+	}
+}
 
 export {
+	plugin,
 	N8nInfoAccordion,
 	N8nActionBox,
 	N8nActionToggle,
 	N8nAvatar,
 	N8nBadge,
-	N8nButton,
+	// N8nButton,
 	N8nElButton,
 	N8nCallout,
 	N8nPanelCallout,
